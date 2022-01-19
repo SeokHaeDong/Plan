@@ -1,5 +1,6 @@
 package kr.co.plan.entity;
 
+
 import lombok.*;
 
 import javax.persistence.*;
@@ -11,10 +12,11 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Getter
 @ToString
-public class Todo extends BaseEntity{
+public class Plan {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long tno;
+    private Long pno;
+
     @Column(length = 50, nullable = false)
     private String todo_title;
 
@@ -36,3 +38,4 @@ public class Todo extends BaseEntity{
     @ManyToOne(fetch = FetchType.LAZY)
     private User todo_user;
 }
+
