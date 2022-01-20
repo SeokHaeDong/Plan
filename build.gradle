@@ -1,5 +1,5 @@
 plugins {
-    id 'org.springframework.boot' version '2.6.2'
+    id 'org.springframework.boot' version '2.5.5'
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
     id 'java'
     id 'war'
@@ -32,8 +32,13 @@ dependencies {
     providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'org.springframework.security:spring-security-test'
+    //스프링부트 시큐리티 사용
+    implementation 'org.springframework.boot:spring-boot-starter-security'
     implementation group: 'org.thymeleaf.extras', name: 'thymeleaf-extras-java8time'
     implementation group: 'org.thymeleaf.extras', name: 'thymeleaf-extras-springsecurity5'
+    //구글로그인 사용
+    implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
+
 
 }
 

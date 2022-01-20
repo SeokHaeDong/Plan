@@ -21,7 +21,6 @@ public class Plan {
     @Column(length = 100, nullable = false)
     private String title;
 
-    //텍스트 어떻게 하지?
     private String description;
 
     @Column(length = 100)
@@ -30,6 +29,7 @@ public class Plan {
     @Column(nullable = false)
     private LocalDateTime start;
 
+    @Column(nullable = false)
     private LocalDateTime end;
 
     @Column(length = 20)

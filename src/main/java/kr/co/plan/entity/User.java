@@ -3,9 +3,13 @@ package kr.co.plan.entity;
 import lombok.*;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
+import org.springframework.security.core.GrantedAuthority;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Builder
@@ -41,5 +45,18 @@ public class User extends BaseEntity{
     @Column(columnDefinition = "varchar(3) default '가입'")
     private String exist;
 
+    private boolean fromSocial;
 
+    @ElementCollection(fetch = FetchType.LAZY)
+    @Builder.Default
+    private Set<UserRole> roleSet = new HashSet<>();
+
+    public User(String username, String password, Collection<? extends GrantedAuthority> authorities) {
+        super();
+    }
+
+    public void addUserRole(UserRole userRole) {
+        roleSet.add(userRole);
+    }
+    
 }
