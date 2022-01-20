@@ -1,6 +1,7 @@
 package kr.co.plan.entity;
 
 import lombok.*;
+import org.hibernate.annotations.DynamicInsert;
 
 import javax.persistence.*;
 
@@ -9,15 +10,20 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
-@ToString(exclude = {"friend_request", "friend_response"})
-public class Friend extends BaseEntity{
+@DynamicInsert
+@ToString(exclude = {"request","response"})
+public class Friend extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long fno;
-    private int friend_status;
-    @ManyToOne(fetch = FetchType.LAZY)
-    private User friend_request;
-    @ManyToOne(fetch = FetchType.LAZY)
-    private User friend_response;
-}
 
+    @Column(columnDefinition = "varchar(5) default '요청중'")
+    private String status;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    private User request;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    private User response;
+
+}

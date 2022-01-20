@@ -8,27 +8,24 @@ public interface FriendService {
     public Long request(FriendDTO dto);
 
     default Friend dtoToEntity(FriendDTO dto) {
-    User user_request = User.builder().user_code(dto.getFriend_request()).build();
-    User user_response = User.builder().user_code(dto.getFriend_response()).build();
-    Friend friend = Friend.builder()
-            .fno(dto.getFriend_fno())
-            .friend_request(user_request)
-            .friend_response(user_response)
-            .friend_status(dto.getFriend_status()).build();
-    return friend;
+        User request = User.builder().code(dto.getRequest()).build();
+        User response = User.builder().code(dto.getResponse()).build();
+        Friend friend = Friend.builder()
+                .fno(dto.getFno())
+                .request(request)
+                .response(response)
+                .status(dto.getStatus()).build();
+        return friend;
     }
 
-    default FriendDTO entityToDTO(Friend friend, User user_request, User user_response) {
+    default FriendDTO entityToDTO(Friend friend, User request, User response) {
         FriendDTO dto = FriendDTO.builder()
-                .friend_fno(friend.getFno())
-                .friend_request(user_request.getUser_code())
-                .friend_response(user_response.getUser_code())
-                .friend_status(friend.getFriend_status())
+                .fno(friend.getFno())
+                .request(request.getCode())
+                .response(response.getCode())
+                .status(friend.getStatus())
                 .regDate(friend.getRegDate())
-                .modDate(friend.getModDate())
-                .build();
+                .modDate(friend.getModDate()).build();
         return dto;
     }
-
-
 }

@@ -5,12 +5,14 @@ import kr.co.plan.entity.Friend;
 import kr.co.plan.repository.FriendRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 @Log4j2
 @RequiredArgsConstructor
-public class FriendServiceImpl implements FriendService {
+public class FriendServiceImpl implements FriendService{
+    @Autowired
     private final FriendRepository friendRepository;
 
     @Override
