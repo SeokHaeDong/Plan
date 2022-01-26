@@ -27,11 +27,6 @@ public class UserServiceImpl implements UserService {
         return user.getUno();
     }
 
-    @Override
-    public String usingCheck(String email) {
-
-        return null;
-    }
 
 
 }

@@ -19,7 +19,4 @@ public class Question {
     @Column(nullable = false)
     private String context;
 
-    @Column(nullable = false)
-    private String answer;
-
 }

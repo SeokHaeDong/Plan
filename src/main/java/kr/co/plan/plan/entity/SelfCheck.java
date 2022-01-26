@@ -16,6 +16,9 @@ public class SelfCheck {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long sno;
 
+    @Column(nullable = false)
+    private String answer;
+
     @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.REMOVE)
     @JoinColumn(name = "uno")
     private User user;

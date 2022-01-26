@@ -13,5 +13,6 @@ public class SelfCheckDTO {
     private Long sno;
     private Long uno;
     private Long qno;
+    private String answer;
 
 }

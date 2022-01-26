@@ -12,7 +12,6 @@ import lombok.NoArgsConstructor;
 public class QuestionDTO {
     private Long qno;
     private String context;
-    private String answer;
 
 
 }
