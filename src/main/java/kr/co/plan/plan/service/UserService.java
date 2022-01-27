@@ -3,6 +3,8 @@ package kr.co.plan.plan.service;
 import kr.co.plan.plan.dto.UserDTO;
 import kr.co.plan.plan.entity.User;
 
+import java.util.Map;
+
 public interface UserService {
 
     /*String getEmail();
@@ -26,7 +28,9 @@ public interface UserService {
         return dto;
     }
 
-    public Long register(UserDTO dto);
+    public Map<String, Object> register(UserDTO dto);
+
+
     
 
 

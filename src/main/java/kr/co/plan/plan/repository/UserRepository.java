@@ -7,11 +7,20 @@ import org.springframework.data.jpa.repository.Query;
 import java.util.List;
 
 
-public interface UserRepository extends JpaRepository<User, Long> {
+public interface UserRepository extends JpaRepository<User, Long>{
 
-    // email , id, nick 중복 검사를 위한 메서드
-    @Query("select  email from User")
-    public List<String> usingCheck();
+    // email 중복 검사를 위한 메서드
+    @Query("select  email from User where email = :email")
+    public String emailCheck(String email);
+
+    @Query("select id from User where id = :id")
+    public String idCheck(String id);
+
+    @Query("select nick from User where nick = :nick")
+    public String nickCheck(String nick);
+
+
+
 
 
 

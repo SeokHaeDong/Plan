@@ -9,7 +9,7 @@ public interface PlanService {
 
     default Plan DTOToEntity(PlanDTO dto){
         User user = User.builder().uno(dto.getUno()).build();
-        Plan plan = Plan.builder().priority(dto.getPriority()).title(dto.getTitle()).location(dto.getLocation()).start(dto.getStart()).end(dto.getEnd()).description(dto.getDescription()).category(dto.getCategory()).share(dto.getShare()).user(user).build();
+        Plan plan = Plan.builder().pno(dto.getPno()).priority(dto.getPriority()).title(dto.getTitle()).location(dto.getLocation()).start(dto.getStart()).end(dto.getEnd()).description(dto.getDescription()).category(dto.getCategory()).share(dto.getShare()).user(user).build();
 
         return plan;
 
@@ -17,7 +17,7 @@ public interface PlanService {
 
     default PlanDTO EntityToDTO(Plan plan, User user){
 
-        PlanDTO planDTO = PlanDTO.builder().priority(plan.getPriority()).title(plan.getTitle()).location(plan.getLocation()).start(plan.getStart()).end(plan.getEnd()).description(plan.getDescription()).category(plan.getCategory()).share(plan.getShare()).uno(user.getUno()).build();
+        PlanDTO planDTO = PlanDTO.builder().pno(plan.getPno()).priority(plan.getPriority()).title(plan.getTitle()).location(plan.getLocation()).start(plan.getStart()).end(plan.getEnd()).description(plan.getDescription()).category(plan.getCategory()).share(plan.getShare()).uno(user.getUno()).build();
 
         return planDTO;
     }
