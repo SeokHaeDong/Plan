@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Main Page</title>
+</head>
+<body>
+<h2>메인페이지</h2>
+  <div sec:authorize="hasRole('회원')">회원등급계정</div>
+  <div sec:authorize="hasRole('관리자')">관리자등급계정</div>
+<hr>
+
+  <div sec:authorize="isAuthenticated()">
+      로그인 성공한 유저에게만 보여지는 텍스트
+  </div>
+
+  Authenticated 유저 아이디:
+  <div sec:authentication="name"></div>
+  Authenticated 유저 권한:
+  <div sec:authentication="principal.authorities">
+  </div>
+
+  <a href="/logout">로그아웃</a>
+</body>
+</html>
