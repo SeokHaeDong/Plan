@@ -20,7 +20,7 @@ public class Checklist extends BaseEntity{
     private Long cno;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
-    @JoinColumn(name = "uno")
+    @JoinColumn(name = "code")
     private User user;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)

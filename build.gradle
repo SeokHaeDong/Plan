@@ -50,6 +50,10 @@ dependencies {
     // https://mvnrepository.com/artifact/com.jcraft/jsch
     implementation group: 'com.jcraft', name: 'jsch', version: '0.1.54'
 
+    // https://mvnrepository.com/artifact/ch.dvbern.oss.cryptutil/cryptutil
+    implementation group: 'ch.dvbern.oss.cryptutil', name: 'cryptutil', version: '2.0.1'
+
+
 
 
 

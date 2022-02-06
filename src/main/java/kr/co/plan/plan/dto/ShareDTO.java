@@ -11,6 +11,6 @@ import lombok.NoArgsConstructor;
 @Data
 public class ShareDTO {
     private Long sno;
-    private Long uno;
+    private Long code;
     private Long pno;
 }

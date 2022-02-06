@@ -19,6 +19,11 @@ public interface UserRepository extends JpaRepository<User, Long>{
     @Query("select nick from User where nick = :nick")
     public String nickCheck(String nick);
 
+   /* public boolean existsUserByEmail(String email);
+
+    public boolean existsUserById(String id);
+
+    public boolean existsUserByNick(String nick);*/
 
 
 

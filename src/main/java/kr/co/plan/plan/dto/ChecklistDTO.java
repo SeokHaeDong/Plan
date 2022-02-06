@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 @Data
 public class ChecklistDTO {
     private Long cno;
-    private Long uno;
+    private Long code;
     private Long pno;
     private String todo;
     private String done;

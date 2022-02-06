@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @Data
 public class SelfCheckDTO {
     private Long sno;
-    private Long uno;
+    private Long code;
     private Long qno;
     private String answer;
 

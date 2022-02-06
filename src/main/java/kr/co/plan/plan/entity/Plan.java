@@ -48,7 +48,7 @@ public class Plan{
 
 //    @Transactional 사용, 미 사용시 관련된 Entity들의 정보를 불러 올 수 없음
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
-    @JoinColumn(name="uno")
+    @JoinColumn(name="code")
     private User user;
 
 }
