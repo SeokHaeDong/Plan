@@ -19,5 +19,5 @@ public class PlanDTO {
     private String description;
     private String category;
     private String share;
-    private Long uno;
+    private Long code;
 }

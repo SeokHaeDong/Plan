@@ -17,7 +17,7 @@ public class Share {
     private int sno;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
-    @JoinColumn(name = "uno")
+    @JoinColumn(name = "code")
     private User user;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)

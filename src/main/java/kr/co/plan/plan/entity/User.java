@@ -21,7 +21,7 @@ import java.time.LocalDateTime;
 public class User extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long uno;
+    private Long code;
 
     @NotBlank(message = "이메일을 입력해주세요.")
     @Column(nullable = false, unique = true)
@@ -47,7 +47,9 @@ public class User extends BaseEntity {
     @Column(columnDefinition = "varchar(5) default '회원'")
     private String status;
 
-    @Column(columnDefinition = "varchar(10) default '일반회원'", nullable = false)
-    private String role;
+//    @Column(columnDefinition = "varchar(10) default '일반회원'", nullable = false)
+//    private String role;
+
+    public void setPw(String pw){this.pw = pw;}
 
 }
