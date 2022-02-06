@@ -3,7 +3,7 @@ plugins {
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
     id 'java'
     id 'war'
-
+    // dsl
     id 'com.ewerk.gradle.plugins.querydsl' version '1.0.10'
 }
 
