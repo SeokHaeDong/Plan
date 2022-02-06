@@ -15,7 +15,7 @@ public class Question {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long qno;
-
+    //dd
     @Column(nullable = false)
     private String context;
 
