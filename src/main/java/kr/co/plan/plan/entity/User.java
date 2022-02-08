@@ -52,4 +52,10 @@ public class User extends BaseEntity {
 
     public void setPw(String pw){this.pw = pw;}
 
+    public void changeUser(String nick, String gender, LocalDate birthday){
+        this.nick = nick;
+        this.gender = gender;
+        this.birthday = birthday;
+    }
+
 }

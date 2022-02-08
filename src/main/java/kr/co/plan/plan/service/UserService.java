@@ -31,7 +31,11 @@ public interface UserService {
     public Map<String, Object> register(UserDTO dto);
 
 
-    public boolean UserLogin(User user, String email, String id, String pw);
+    public Map<String, Object> UserLogin(UserDTO dto);
+
+    public void userModifiy(UserDTO dto);
+
+    public void userRemove(UserDTO dto);
 
 
     

@@ -1,5 +1,6 @@
 package kr.co.plan.plan.dto;
 
+import kr.co.plan.plan.entity.User;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -23,4 +24,7 @@ public class UserDTO {
     private String status;
 //    private String role;
     private LocalDateTime regDate;
+    private LocalDateTime modDate;
+
+
 }
