@@ -1,6 +1,9 @@
 package kr.co.plan.plan.service;
 
+import kr.co.plan.plan.dto.AnswerDTO;
 import kr.co.plan.plan.dto.UserDTO;
+import kr.co.plan.plan.entity.Answer;
+import kr.co.plan.plan.entity.Question;
 import kr.co.plan.plan.entity.User;
 
 import java.util.Map;
@@ -28,7 +31,25 @@ public interface UserService {
         return dto;
     }
 
-    public Map<String, Object> register(UserDTO dto);
+
+    default Answer DTOToEntity(AnswerDTO answerDTO){
+        User user = User.builder().code(answerDTO.getCode()).build();
+        Question question = Question.builder().qno(answerDTO.getQno()).build();
+
+        Answer answer = Answer.builder().ano(answerDTO.getAno()).user(user).question(question).answer(answerDTO.getAnswer()).build();
+        return answer;
+    }
+
+
+    default AnswerDTO EntityToDTO(Answer answer, User user, Question question){
+        // user code, question qno --> User, Question type need type long , long
+        AnswerDTO answerDTO = AnswerDTO.builder().ano(answer.getAno()).code(user.getCode()).qno(question.getQno()).answer(answer.getAnswer()).build();
+
+        return answerDTO;
+    }
+
+
+    public Map<String, Object> register(UserDTO dto, AnswerDTO answerDTO);
 
 
     public Map<String, Object> UserLogin(UserDTO dto);

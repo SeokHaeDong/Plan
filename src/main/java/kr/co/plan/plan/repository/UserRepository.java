@@ -1,5 +1,6 @@
 package kr.co.plan.plan.repository;
 
+import kr.co.plan.plan.entity.Question;
 import kr.co.plan.plan.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -19,5 +20,8 @@ public interface UserRepository extends JpaRepository<User, Long>{
     @Query("select u from User u where u.id = :id")
     public User userInfoUpdate(String id);
 
+    // 유저 회원가입 시 본인 확인질문을 위한 질문 3가지를 Question테이블에서 가져오기
+    @Query(value = "select q.qno, q.context from Question q order by rand() LIMIT 3", nativeQuery = true)
+    public List<Question> userRegisterQuestion();
 
 }

@@ -28,7 +28,7 @@ public class RepositoryTest {
     private QuestionRepository questionRepository;
 
     // User 정보를 랜덤으로 100 까지 삽입 하는 메서드
-    //@Test
+//    @Test
     public void userRegisterTest(){
         IntStream.rangeClosed(1, 100).forEach( i -> {
             int length = 10;
@@ -60,9 +60,9 @@ public class RepositoryTest {
         });
     }
 
-    @Test
+//    @Test
     public void questionInsertTest(){
-        IntStream.rangeClosed(1, 100).forEach(i -> {
+        IntStream.rangeClosed(1, 10).forEach(i -> {
             int length = 10;
             String question_context = RandomStringUtils.randomAlphanumeric(length);
 

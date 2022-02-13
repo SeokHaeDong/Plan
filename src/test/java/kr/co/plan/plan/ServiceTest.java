@@ -1,7 +1,10 @@
 package kr.co.plan.plan;
 
 import kr.co.plan.plan.config.SecurityConfig;
+import kr.co.plan.plan.dto.AnswerDTO;
+import kr.co.plan.plan.dto.QuestionDTO;
 import kr.co.plan.plan.dto.UserDTO;
+import kr.co.plan.plan.entity.User;
 import kr.co.plan.plan.repository.UserRepository;
 import kr.co.plan.plan.service.UserService;
 
@@ -44,22 +47,32 @@ public class ServiceTest {
 
     }
 
-//    @Test
+    @Test
     public void userSignUpTest(){
         LocalDate date = LocalDate.parse("2000-01-23");
         UserDTO userDTO = UserDTO.builder()
-                .email("test3@naver.com")
-                .id("qwer3")
+                .email("tester@naver.com")
+                .id("qwer4")
                 .pw("1234")
-                .nick("tester3")
+                .nick("tester4")
                 .birthday(date)
                 .gender("M")
                 .status("회원")
                 .build();
 
+        QuestionDTO questionDTO = QuestionDTO.builder()
+                .qno(1L).build();
+
+        AnswerDTO answerDTO = AnswerDTO.builder()
+                .qno(questionDTO.getQno())
+                .answer("test answer")
+                .code(userDTO.getCode())
+                .build();
+
+
 
         Map<String, Object> result = new HashMap<>();
-        result = userService.register(userDTO);
+        result = userService.register(userDTO, answerDTO);
         for(String key : result.keySet()){
             Boolean value = (Boolean)result.get(key);
             System.out.println(key + " : " + value);
@@ -97,9 +110,10 @@ public class ServiceTest {
         System.out.println(userDTO);
     }
 
-    @Test
+//    @Test
     public void userRemove(){
-
+        UserDTO userDTO = UserDTO.builder().code(104L).build();
+        userService.userRemove(userDTO);
     }
 
 

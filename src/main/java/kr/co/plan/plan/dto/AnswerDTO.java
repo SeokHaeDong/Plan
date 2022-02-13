@@ -9,8 +9,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class SelfCheckDTO {
-    private Long sno;
+public class AnswerDTO {
+    private Long ano;
     private Long code;
     private Long qno;
     private String answer;
