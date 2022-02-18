@@ -22,6 +22,12 @@ public interface FriendRepository extends JpaRepository<Friend, Long> {
     @Transactional
     public void requestAccept(String status, User request_u, User response_u);
 
+    // 쌍방 요청시 자동으로 status를 수락 으로 만들어주는 메서드 작성
+    @Query(value = "update Friend set status case when request = response = :code then status = '수락' end whered response = :response and request = request", nativeQuery = true)
+    @Modifying
+    @Transactional
+    public void autoUpdateMultipleRequest();
+
 
     // 친구 목록
     @Query(value = "select u.nick from User u inner join Friend f on f.response = u.code where f.response = :response and f.status = '수락'", nativeQuery = true)
