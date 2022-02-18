@@ -37,6 +37,10 @@ public class UserServiceImpl implements UserService {
 
         User user = DTOToEntity(dto);
 
+        // 본인확인 질문에 대한 질문을 선택하고 해당 질문에 대한 qno, 그리고 유저 code 그리고 answer 를 Answer테이블에 저장해야 함
+//        List<Object[]> question = new ArrayList<>();
+        Question question = userRepository.userRegisterQuestion();
+
         List<Object[]> dataList = userRepository.dataList();
         for (Object[] list : dataList) {
             String emailLsit = (String) list[0];
@@ -60,19 +64,15 @@ public class UserServiceImpl implements UserService {
                 status.put("nick", true);
             }
 
-            // 본인확인 질문에 대한 질문을 선택하고 해당 질문에 대한 qno, 그리고 유저 code 그리고 answer 를 Answer테이블에 저장해야 함
-            List<Question> question = userRepository.userRegisterQuestion();
-            for(Question result : question){
-                System.out.println(question);
-            }
+
 
             if ((boolean) (status.get("email")) == true && (boolean) (status.get("id")) == true && (boolean) (status.get("nick")) == true) {
 
                 String userEncodePassword = passwordEncoder.encode(user.getPw());
                 user.setPw(userEncodePassword);
-//                Answer answer = DTOToEntity(answerDTO);
-//                answerRepository.save(answer);
-//                userRepository.save(user);
+                Answer answer = DTOToEntity(answerDTO);
+                answerRepository.save(answer);
+                userRepository.save(user);
                 status.put("result", true);
             } else {
                 status.put("result", false);
@@ -85,6 +85,8 @@ public class UserServiceImpl implements UserService {
         return status;
     }
 
+    // email , id -> upper, lower로 대소문자 구분 안하도록 해줘야 함
+    // 와~ insert 부터 대소문자 구분없이 저장을 하도록 설계를 해야 하네?? 야단이다~~
     @Override
     public Map<String, Object> UserLogin(UserDTO dto) {
         Map<String, Object> status = new HashMap<>();

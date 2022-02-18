@@ -21,7 +21,7 @@ public interface UserRepository extends JpaRepository<User, Long>{
     public User userInfoUpdate(String id);
 
     // 유저 회원가입 시 본인 확인질문을 위한 질문 3가지를 Question테이블에서 가져오기
-    @Query(value = "select q.qno, q.context from Question q order by rand() LIMIT 3", nativeQuery = true)
-    public List<Question> userRegisterQuestion();
+    @Query(value = "select q from Question q order by rand() LIMIT 1", nativeQuery = true)
+    public Question userRegisterQuestion();
 
 }

@@ -42,7 +42,7 @@ public interface UserService {
 
 
     default AnswerDTO EntityToDTO(Answer answer, User user, Question question){
-        // user code, question qno --> User, Question type need type long , long
+
         AnswerDTO answerDTO = AnswerDTO.builder().ano(answer.getAno()).code(user.getCode()).qno(question.getQno()).answer(answer.getAnswer()).build();
 
         return answerDTO;
